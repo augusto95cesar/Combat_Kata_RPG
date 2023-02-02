@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IterationOneTest.cs" />
+    <Compile Include="IterationThree.cs" />
     <Compile Include="IterationTwoTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

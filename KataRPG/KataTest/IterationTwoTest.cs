@@ -1,11 +1,6 @@
 ﻿using KataModel.Entity;
 using KataModel.Services;
-using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using NUnit.Framework; 
 
 namespace KataTest
 {
@@ -14,12 +9,14 @@ namespace KataTest
     {
         private Personagem _protagonista;
         private Personagem _inimigo;
+        private CampoBatalha _campoBatalha;
 
         [SetUp]
         public void SetUp()
         {
-            _protagonista = PersonagemService.CriarPersonagem();
-            _inimigo = PersonagemService.CriarPersonagem();
+            _protagonista = StartJogoService.CriarPersonagem();
+            _inimigo = StartJogoService.CriarPersonagem();
+            _campoBatalha = StartJogoService.CriarCampoBatalha();
         }
 
         /// <summary>
@@ -28,7 +25,7 @@ namespace KataTest
         [Test]
         public void NaoPodeAtacarSiMesmo()
         {
-            _protagonista.SofrerDano(_protagonista, 900);
+            _protagonista.SofrerDano(_campoBatalha,_protagonista, 900);
             
             Assert.AreEqual(_protagonista.Saude, 1000);
             Assert.AreEqual(_protagonista.Vivo, true);
@@ -40,7 +37,7 @@ namespace KataTest
         [Test]
         public void NaoPodeCurarOInimigo()
         {
-            _inimigo.SofrerDano(_protagonista, 200);
+            _inimigo.SofrerDano(_campoBatalha,_protagonista, 200);
             Assert.AreEqual(_inimigo.Saude, 700);
 
             _inimigo.Curar(300);
@@ -59,7 +56,7 @@ namespace KataTest
             _protagonista.Nivel = 2;
             _inimigo.Nivel = 10;
 
-            _protagonista.SofrerDano(_inimigo, 200);
+            _protagonista.SofrerDano(_campoBatalha,_inimigo, 200);
 
             Assert.AreEqual(_protagonista.Saude, 900);
         }
@@ -74,7 +71,7 @@ namespace KataTest
             _protagonista.Nivel = 10;
             _inimigo.Nivel = 2;
 
-            _protagonista.SofrerDano(_inimigo, 200);
+            _protagonista.SofrerDano(_campoBatalha,_inimigo, 200);
 
             Assert.AreEqual(_protagonista.Saude, 700);
         }
@@ -84,6 +81,7 @@ namespace KataTest
         {
             _protagonista = null;
             _inimigo = null;
+            _campoBatalha = null;
         }
     }
 }

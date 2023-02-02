@@ -9,12 +9,14 @@ namespace KataTest
     {
        private Personagem _protagonista;
        private Personagem _inimigo;
+       private CampoBatalha _campoBatalha;
 
         [SetUp]
         public void SetUp()
         {
-            _protagonista = PersonagemService.CriarPersonagem();
-            _inimigo = PersonagemService.CriarPersonagem();
+            _protagonista = StartJogoService.CriarPersonagem();
+            _inimigo = StartJogoService.CriarPersonagem();
+            _campoBatalha = StartJogoService.CriarCampoBatalha();
         }
 
         /// <summary>
@@ -54,7 +56,7 @@ namespace KataTest
         public void Ataque()
         {
             var ataqueInimigo = 200;
-            _protagonista.SofrerDano(_inimigo, ataqueInimigo);
+            _protagonista.SofrerDano(_campoBatalha,_inimigo, ataqueInimigo);
 
             var ataque = (_inimigo.Nivel - _protagonista.Nivel) >= 5 ? ataqueInimigo / 2 : (ataqueInimigo * 1.5);
 
@@ -69,7 +71,7 @@ namespace KataTest
         public void AtaqueExcedeASaude()
         {
             var ataqueInimigo = 900;
-            _protagonista.SofrerDano(_inimigo, ataqueInimigo); 
+            _protagonista.SofrerDano(_campoBatalha,_inimigo, ataqueInimigo); 
 
             Assert.AreEqual(_protagonista.Saude, 0);
             Assert.AreEqual(_protagonista.Vivo, false);
@@ -82,7 +84,7 @@ namespace KataTest
         public void CurarPersonagemMorto()
         {
             var ataqueInimigo = 900;
-            _protagonista.SofrerDano(_inimigo, ataqueInimigo);
+            _protagonista.SofrerDano(_campoBatalha,_inimigo, ataqueInimigo);
 
             _protagonista.Curar(500);
 
@@ -111,7 +113,7 @@ namespace KataTest
         public void CuraQuinhentos()
         {
             var ataqueInimigo = 500;
-            _protagonista.SofrerDano(_inimigo, ataqueInimigo);
+            _protagonista.SofrerDano(_campoBatalha,_inimigo, ataqueInimigo);
 
             _protagonista.Curar(700);
  
@@ -124,6 +126,7 @@ namespace KataTest
         {
             _protagonista = null;
             _inimigo = null;
+            _campoBatalha = null;
         }
     }
 }
