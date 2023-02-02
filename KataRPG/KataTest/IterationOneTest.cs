@@ -54,7 +54,7 @@ namespace KataTest
         public void Ataque()
         {
             var ataqueInimigo = 200;
-            _protagonista.Dano(_inimigo, ataqueInimigo);
+            _protagonista.SofrerDano(_inimigo, ataqueInimigo);
 
             var ataque = (_inimigo.Nivel - _protagonista.Nivel) >= 5 ? ataqueInimigo / 2 : (ataqueInimigo * 1.5);
 
@@ -69,7 +69,7 @@ namespace KataTest
         public void AtaqueExcedeASaude()
         {
             var ataqueInimigo = 900;
-            _protagonista.Dano(_inimigo, ataqueInimigo); 
+            _protagonista.SofrerDano(_inimigo, ataqueInimigo); 
 
             Assert.AreEqual(_protagonista.Saude, 0);
             Assert.AreEqual(_protagonista.Vivo, false);
@@ -82,7 +82,7 @@ namespace KataTest
         public void CurarPersonagemMorto()
         {
             var ataqueInimigo = 900;
-            _protagonista.Dano(_inimigo, ataqueInimigo);
+            _protagonista.SofrerDano(_inimigo, ataqueInimigo);
 
             _protagonista.Curar(500);
 
@@ -111,7 +111,7 @@ namespace KataTest
         public void CuraQuinhentos()
         {
             var ataqueInimigo = 500;
-            _protagonista.Dano(_inimigo, ataqueInimigo);
+            _protagonista.SofrerDano(_inimigo, ataqueInimigo);
 
             _protagonista.Curar(700);
  

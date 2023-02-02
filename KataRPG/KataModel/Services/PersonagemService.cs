@@ -9,7 +9,7 @@ namespace KataModel.Services
             return new Personagem();
         }
 
-        public static void Dano(this Personagem personagem, Personagem inimigo, int ataque)
+        public static void SofrerDano(this Personagem personagem, Personagem inimigo, int ataque)
         {
 
             if (personagem.Saude > 0 
