@@ -11,6 +11,11 @@ namespace KataModel.Entity
 
         public int DistanciaEntrePersonagemEseuAlvo { get; set; }
 
+        public void SetDistaciaAfavorDoPersongem(Personagem personagem)
+        {
+            DistanciaEntrePersonagemEseuAlvo = personagem.Alcance;
+        }
+
         private void GerarDistanciaEntreProtagonistaEseuInimigo()
         {
             var numero = new Random().Next(0, 10);

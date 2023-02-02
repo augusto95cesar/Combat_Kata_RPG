@@ -6,7 +6,7 @@ using NUnit.Framework;
 namespace KataTest
 {
     [TestFixture]
-    public class IterationThree
+    public class IterationThreeTest
     {
         private Personagem _protagonista;
         private Personagem _inimigo;
