@@ -11,7 +11,7 @@ namespace KataTest
         private Personagem _protagonista;
         private Personagem _companheiro;
         private Personagem _inimigo;
-        private CampoBatalha _campoBatalha;
+        private Mapa _campoBatalha;
 
         [SetUp]
         public void SetUp()

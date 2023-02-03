@@ -34,7 +34,7 @@ namespace KataModel.Entity
             Alcance = numero > 5 ? 2 : 20;
             TipoPersonagem = numero > 5 ? TipoPersonagem.Melee : TipoPersonagem.Ranged;
         }
-        public void SofrerDano(CampoBatalha campoBatalha, Personagem inimigo, int ataque)
+        public void SofrerDano(Mapa campoBatalha, Personagem inimigo, int ataque)
         {
             if (Saude > 0
                 && GetId() != inimigo.GetId()

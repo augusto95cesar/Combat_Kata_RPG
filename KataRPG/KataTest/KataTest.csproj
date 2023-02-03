@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IterationFiveTest.cs" />
     <Compile Include="IterationFourTest.cs" />
     <Compile Include="IterationOneTest.cs" />
     <Compile Include="IterationThreeTest.cs" />

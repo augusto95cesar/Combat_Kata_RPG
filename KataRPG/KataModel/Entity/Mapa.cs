@@ -2,9 +2,9 @@
 
 namespace KataModel.Entity
 {
-    public class CampoBatalha
+    public class Mapa
     {
-        public CampoBatalha()
+        public Mapa()
         {
             GerarDistanciaEntreProtagonistaEseuInimigo();
         }

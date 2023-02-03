@@ -8,9 +8,9 @@ namespace KataModel.Services
         { 
             return new Personagem();
         }
-        public static CampoBatalha CriarCampoBatalha () 
+        public static Mapa CriarCampoBatalha () 
         { 
-            return new CampoBatalha();
+            return new Mapa();
         }
     }
 }

@@ -41,7 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entity\CampoBatalha.cs" />
+    <Compile Include="Entity\Interfaces\IItens.cs" />
+    <Compile Include="Entity\Itens\Bau.cs" />
+    <Compile Include="Enums\TipoItens.cs" />
+    <Compile Include="Services\FactoryItens.cs" />
+    <Compile Include="Entity\Itens\Arvore.cs" />
+    <Compile Include="Entity\Item.cs" />
+    <Compile Include="Entity\Itens\Mesa.cs" />
+    <Compile Include="Entity\Mapa.cs" />
     <Compile Include="Entity\Personagem.cs" />
     <Compile Include="Enums\FaccoesPersonagem.cs" />
     <Compile Include="Enums\TipoPersonagem.cs" />
